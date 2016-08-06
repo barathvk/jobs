@@ -51,8 +51,9 @@
     "wordcloud": "^1.0.5"
   },
   "scripts": {
+    "postinstall": "webpack -p --config webpack.prod.js",
     "dev": "webpack-dev-server --inline --port 3000 --hot --progress --content-base build --silent",
     "build": "webpack -p --config webpack.prod.js",
-    "start": "DB_HOST=https://barath.cloudant.com DB_PORT=80 node index.js"
+    "start": "node index.js"
   }
 }
