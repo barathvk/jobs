@@ -14,6 +14,8 @@ const actions = {
     return newstate
   }
 }
-const initialState = {}
+const initialState = {
+  loading: true
+}
 const store = Hover(actions, initialState)
 export default store

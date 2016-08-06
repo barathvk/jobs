@@ -7,6 +7,7 @@ const async = require('async')
 const Extractor = require('html-extractor')
 const gramophone = require('gramophone')
 const stopwords = require('stopwords').english
+const favicon = require('favicon')
 const extractor = new Extractor()
 app.get('/', (req,res,next) => {
   db.list({include_docs: true}, (err,docs) => {
@@ -17,12 +18,16 @@ app.get('/', (req,res,next) => {
         axios.get(doc.href).then(resp => {
           extractor.extract(resp.data, (err, data) => {
             doc.title = data.meta.title
-            doc.html = data.body.replace('New Search View Indeed in: Mobile - Classic','')
-            doc.tags = gramophone.extract(doc.html, {
+            doc.html = resp.data
+            doc.body = data.body.replace('New Search View Indeed in: Mobile - Classic','')
+            doc.tags = gramophone.extract(doc.body, {
               stopwords: stopwords,
               score: true
             }).map(t => ({value: t.term, count: t.tf}))
-            nextdoc()
+            favicon(doc.href, (err, url) => {
+              if (!err) doc.favicon = url
+              nextdoc()
+            })
           })          
         }).catch(err => nextdoc())        
       }, err => {
@@ -30,6 +35,21 @@ app.get('/', (req,res,next) => {
         else res.send(docs)
       })
     }    
+  })
+})
+app.post('/', (req,res,next) => {
+  var link = req.body.link
+  db.insert({href:link}, (err,resp) => {
+    if (err) next(err)
+    else res.send(resp)
+  })
+})
+app.delete('/:id/:rev', (req,res,next) => {
+  var id = req.params.id
+  var rev = req.params.rev
+  db.destroy(id,rev,(err,resp) => {
+    if (err) next(err)
+    else res.send(resp)
   })
 })
 module.exports = app

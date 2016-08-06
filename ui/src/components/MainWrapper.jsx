@@ -1,11 +1,15 @@
 import SplitPanel from 'react-split-panel'
 import MainView from './MainView.jsx'
 import MainMenu from './MainMenu.jsx'
+import store from '../store'
 class MainWrapper extends React.Component{
   constructor(props) {
     super(props)
     this.state = {}
   }
+  componentDidMount() {
+    store.load()
+  }  
   render() {
     return (
       <div className='fill flex-column'>

@@ -1,0 +1,27 @@
+.list
+  width: 100%  
+  .item
+    padding: 6px 8px
+    border-bottom: $default-border
+    color: $primary
+    transition: $transition
+    cursor: pointer  
+    a
+      &:hover
+        text-decoration: none  
+    &:hover, &.active      
+      background-color: $lightgray-light
+    img
+      margin-right: 8px
+      border-radius: 50%
+      box-shadow: $glow-light-shadow
+      border: $default-border
+  .heading
+    background-color: $lightgray-light
+    padding: 8px
+  .add-link
+    font-weight: bold
+    .fa
+      font-size: 1.4em
+      margin-left: 3px
+      margin-right: 10px
