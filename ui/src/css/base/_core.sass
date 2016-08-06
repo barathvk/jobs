@@ -1,0 +1,117 @@
+html, body
+  padding: 0
+  margin: 0
+  width: 100%
+  height: 100%
+  display: flex
+  flex: 1
+  flex-direction: column
+  font-family: BlinkMacSystemFont, 'Segoe UI'
+  color: $primary
+  font-size: 12px
+  overflow: hidden
+a
+  text-decoration: none
+  color: $primary
+  cursor: pointer
+h1,h2,h3,h4,h5,h6
+  padding: 0
+  margin: 0
+.fill
+  flex: 1
+  overflow: hidden
+.flex-column
+  display: flex
+  flex-direction: column
+.flex-row
+  display: flex
+  flex-direction: row
+.flex-center-align
+  align-items: center
+.flex-center
+  justify-content: center
+  align-items: center
+.error
+  font-size: 5em
+  font-weight: 100
+  color: $darkgray-light
+  &.small
+    font-size: 2em
+.fa
+  margin-right: 5px
+  &.icon-only
+    margin-right: 0
+.truncate
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+@for $i from 1 through 12
+  .flex-#{$i}
+    flex: #{$i}
+.red-text
+  color: $red-dark
+.grey-text
+  color: $mediumgray-dark
+.italics
+  font-style: italic
+.space-right
+  margin-right: 5px
+.space-left
+  margin-left: 5px
+.space-top
+  margin-top: 5px
+.align-right
+  text-align: right
+.label
+  font-size: 0.9em
+  margin-right: 5px
+  border-radius: 3px
+  border: $default-border
+  padding: 1px 6px
+  text-align: center
+  min-width: 36px
+  &:last-child
+    margin-right: 0
+  &.defining
+    background-color: $mint-light
+    border-color: $mint-dark
+  &.complying
+    background-color: $aqua-light
+    border-color: $aqua-dark
+  &.primary
+    background-color: $primary
+    border-color: transparent
+    color: $white
+ul
+  li
+    margin-top: 0
+.animated
+  animation-duration: 0.3s
+  &.slow
+    animation-duration: 1s
+.progress
+  background-color: $white
+  margin-top: 5px
+  height: 8px
+  border: 1px solid $mediumgray-light
+  border-radius: 0
+  margin: 0
+  padding: 0
+  margin-top: 5px
+  width: 100%
+  .progress-bar
+    height: 100%
+    width: 0
+    transition: $transition
+    background-color: $bluejeans-dark
+    border-right: 1px solid $mediumgray-light
+.notification-message
+  font-size: 0.9em
+.home
+  font-size: 6em
+  font-weight: 100
+  .fa
+    margin-bottom: 1em
+.sidebar
+  width: 220px
+  border-right: $default-border

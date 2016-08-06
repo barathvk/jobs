@@ -1,0 +1,5 @@
+port: 'PORT'
+db:
+  host: 'DB_HOST'
+  port: 'DB_PORT'
+  collection: 'DB_COLLECTION'

@@ -1,0 +1,13 @@
+.split-panel
+  display: flex
+  flex: 1
+  .split-panel-item
+    display: flex
+  &.horizontal
+    .split-panel-divider
+      width: 1px
+  &.vertical
+    .split-panel-divider
+      height: 1px
+  .split-panel-divider
+    background-color: $mediumgray-light
