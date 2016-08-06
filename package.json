@@ -52,6 +52,6 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --port 3000 --hot --progress --content-base build --silent",
-    "build": "webpack -p"
+    "build": "webpack -p --config webpack.prod.js"
   }
 }

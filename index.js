@@ -6,7 +6,7 @@ const parser = require('body-parser')
 const fallback = require('express-history-api-fallback')
 const api = require('./server')
 const app = express()
-const root = __dirname + '/src/build'
+const root = __dirname + '/ui/build'
 app.use(cors())
 app.use(compression())
 app.use(parser.json())
