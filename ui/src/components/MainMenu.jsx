@@ -5,8 +5,16 @@ class MainMenu extends React.Component{
   }
   render() {
     return (
-      <div className='flex-column'>
-        Main Menu
+      <div className='flex-column list'>
+        {
+          this.props.data && this.props.data.map((d,i) => {
+            return (
+              <div className='flex-row flex-center-align item' key={i}>
+                {d.title}
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
